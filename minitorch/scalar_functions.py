@@ -87,12 +87,12 @@ class Log(ScalarFunction):
     @staticmethod
     def forward(ctx: Context, a: float) -> float:
         ctx.save_for_backward(a)
-        return operators.log(a)
+        return operators.log(float(a))
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> float:
         (a,) = ctx.saved_values
-        return operators.log_back(a, d_output)
+        return operators.log_back(float(a), d_output)
 
 
 # To implement.
@@ -105,12 +105,12 @@ class Mul(ScalarFunction):
     def forward(ctx: Context, a: float, b: float) -> float:
         # TODO: Implement for Task 1.2.
         ctx.save_for_backward(a, b)
-        return operators.mul(a, b)
+        return operators.mul(float(a), float(b))
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> Tuple[float, float]:
         (a, b) = ctx.saved_values
-        return b * d_output, a * d_output
+        return float(b) * d_output, a * d_output
 
 
 class Inv(ScalarFunction):
@@ -125,7 +125,7 @@ class Inv(ScalarFunction):
     @staticmethod
     def backward(ctx: Context, d_output: float) -> float:
         (a,) = ctx.saved_values
-        return operators.inv_back(a, d_output)
+        return operators.inv_back(float(a), d_output)
 
 
 class Neg(ScalarFunction):
@@ -154,7 +154,7 @@ class Sigmoid(ScalarFunction):
     def backward(ctx: Context, d_output: float) -> float:
         # TODO: Implement for Task 1.4.
         (a,) = ctx.saved_values
-        return operators.sigmoid(a) * (1 - operators.sigmoid(a)) * d_output
+        return operators.sigmoid(float(a)) * (1 - operators.sigmoid(float(a))) * d_output
 
 
 class ReLU(ScalarFunction):
@@ -170,7 +170,7 @@ class ReLU(ScalarFunction):
     def backward(ctx: Context, d_output: float) -> float:
         # TODO: Implement for Task 1.4.
         (a,) = ctx.saved_values
-        return operators.relu_back(a, d_output)
+        return operators.relu_back(float(a), d_output)
 
 
 class Exp(ScalarFunction):
@@ -186,7 +186,7 @@ class Exp(ScalarFunction):
     def backward(ctx: Context, d_output: float) -> float:
         # TODO: Implement for Task 1.4.
         (a,) = ctx.saved_values
-        return operators.exp(a) * d_output
+        return operators.exp(float(a)) * d_output
 
 
 class LT(ScalarFunction):

@@ -66,7 +66,7 @@ def topological_sort(variable: Variable) -> Iterable[Variable]:
     top_sort: List[Variable] = []
     visited: set[Any] = set()
 
-    def dfs_route(var: Variable):
+    def dfs_route(var: Variable) -> None:
         if var.is_constant() or var.unique_id in visited:
             return
         visited.add(var.unique_id)

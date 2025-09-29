@@ -164,7 +164,7 @@ class Scalar:
         assert h.ctx is not None
 
         # TODO: Implement for Task 1.3.
-        chain: Iterable[Tuple[Variable, Any]] = []
+        chain: list[Tuple[Variable, Any]] = []
         backw = h.last_fn._backward(h.ctx, d_out=d_output)
         for i, var in enumerate(h.inputs):
             chain.append((var, backw[i]))

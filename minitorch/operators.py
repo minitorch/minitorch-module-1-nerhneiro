@@ -36,7 +36,7 @@ def mul(x : float, y : float) -> float:
     return x * y
 
 
-def id(x: float):
+def id(x: float) -> float:
     return x
 
 
@@ -44,59 +44,59 @@ def add(x: float, y: float) -> float:
     return x + y
 
 
-def neg(x: float):
+def neg(x: float) -> float:
     return float(-x)
 
 
-def lt(x: float, y: float):
+def lt(x: float, y: float) -> float:
     return float(x < y)
 
 
-def eq(x: float, y: float):
+def eq(x: float, y: float) -> float:
     return float(x == y)
 
 
-def max(x: float, y: float):
+def max(x: float, y: float) -> float:
     if x >= y:
         return x
     return y
 
 
-def is_close(x: float, y: float):
+def is_close(x: float, y: float) -> float:
     return abs(x - y) < 1e-5
 
 
-def sigmoid(x: float):
+def sigmoid(x: float) -> float:
     if x >= 0:
         return 1.0 / (1.0 + math.exp(-x))
     return math.exp(x) / (1.0 + math.exp(x))
 
 
-def relu(x: float):
+def relu(x: float) -> float:
     return max(0.0, x)
 
 
-def log(x: float):
+def log(x: float) -> float:
     return math.log(x)
 
 
-def exp(x: float):
+def exp(x: float) -> float:
     return math.exp(x)
 
 
-def log_back(x: float, y: float):
+def log_back(x: float, y: float) -> float:
     return y / x
 
 
-def inv(x: float):
+def inv(x: float) -> float:
     return 1.0 / x
 
 
-def inv_back(x: float, y: float):
+def inv_back(x: float, y: float) -> float:
     return -1.0 / x ** 2 * y
 
 
-def relu_back(x: float, y: float):
+def relu_back(x: float, y: float) -> float:
     if x > 0:
         return y
     elif x <= 0:
