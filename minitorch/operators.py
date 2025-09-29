@@ -102,8 +102,6 @@ def relu_back(x: float, y: float):
     elif x <= 0:
         return 0
 
-
-
 # ## Task 0.3
 
 # Small practice library of elementary higher-order functions.
@@ -118,7 +116,6 @@ def relu_back(x: float, y: float):
 # - addLists : add two lists together
 # - sum: sum lists
 # - prod: take the product of lists
-
 
 # TODO: Implement for Task 0.3.
 
@@ -154,7 +151,7 @@ def reduce(f: Callable, arr: Iterable[float]) -> float:
     except StopIteration:
         return answer
 
-  
+
 def negList(arr: List[float]):
     return map(neg, arr)
 

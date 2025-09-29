@@ -104,6 +104,7 @@ def backpropagate(variable: Variable, deriv: Any) -> None:
             else:
                 var_to_deriv[step_var.unique_id] += var_derivative
 
+
 @dataclass
 class Context:
     """
