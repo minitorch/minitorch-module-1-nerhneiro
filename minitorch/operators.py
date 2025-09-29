@@ -119,7 +119,7 @@ def relu_back(x: float, y: float) -> float:
 # TODO: Implement for Task 0.3.
 
 
-def map(f: Callable[[float], float], arr: Iterable[float]) -> Iterable[Any]:
+def map(f: Callable[[float], float], arr: Iterable[float]) -> List[float]:
     return [f(x) for x in arr]
 
 
@@ -136,7 +136,7 @@ def zipWith(f: Callable[[float, float], float], arr1: Iterable[float], arr2: Ite
         return answer
 
 
-def reduce(f: Callable[[float], float], arr: Iterable[float]) -> float:
+def reduce(f: Callable[[float, float], float], arr: Iterable[float]) -> float:
     it = iter(arr)
     answer: float = 0.0
     next_val: float = 0.0
