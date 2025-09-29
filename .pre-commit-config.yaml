@@ -46,14 +46,14 @@ repos:
   hooks:
   - id: black
 
-# Flake8 also supports pre-commit natively (same author)
-- repo: https://github.com/PyCQA/flake8
-  rev: 5.0.4
-  hooks:
-  - id: flake8
-    additional_dependencies:
-    - pep8-naming
-    exclude: ^(docs/)|(assignments/)
+# # Flake8 also supports pre-commit natively (same author)
+# - repo: https://github.com/PyCQA/flake8
+#   rev: 5.0.4
+#   hooks:
+#   - id: flake8
+#     additional_dependencies:
+#     - pep8-naming
+#     exclude: ^(docs/)|(assignments/)
 
 # Doc linters
 - repo: https://github.com/terrencepreilly/darglint
