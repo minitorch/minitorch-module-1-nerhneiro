@@ -119,6 +119,7 @@ def relu_back(x: float, y: float):
 
 # TODO: Implement for Task 0.3.
 
+
 def map(f: Callable, arr: Iterable[float]):
     return [f(x) for x in arr]
 
