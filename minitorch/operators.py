@@ -3,7 +3,7 @@
 import math
 
 # ## Task 0.1
-from typing import Callable, Iterable, List
+from typing import Callable, Iterable, List, Any
 
 #
 # Implementation of a prelude of elementary functions.
@@ -99,8 +99,7 @@ def inv_back(x: float, y: float) -> float:
 def relu_back(x: float, y: float) -> float:
     if x > 0:
         return y
-    elif x <= 0:
-        return 0
+    return 0.0
 
 # ## Task 0.3
 
@@ -120,11 +119,11 @@ def relu_back(x: float, y: float) -> float:
 # TODO: Implement for Task 0.3.
 
 
-def map(f: Callable, arr: Iterable[float]):
+def map(f: Callable[[float], float], arr: Iterable[float]) -> Iterable[Any]:
     return [f(x) for x in arr]
 
 
-def zipWith(f: Callable, arr1: Iterable[float], arr2: Iterable[float]) -> List[float]:
+def zipWith(f: Callable[[float, float], float], arr1: Iterable[float], arr2: Iterable[float]) -> List[float]:
     answer: List[float] = []
     try:
         it1 = iter(arr1)
@@ -137,7 +136,7 @@ def zipWith(f: Callable, arr1: Iterable[float], arr2: Iterable[float]) -> List[f
         return answer
 
 
-def reduce(f: Callable, arr: Iterable[float]) -> float:
+def reduce(f: Callable[[float], float], arr: Iterable[float]) -> float:
     it = iter(arr)
     answer: float = 0.0
     next_val: float = 0.0
@@ -153,17 +152,17 @@ def reduce(f: Callable, arr: Iterable[float]) -> float:
         return answer
 
 
-def negList(arr: List[float]):
+def negList(arr: List[float]) -> List[float]:
     return map(neg, arr)
 
 
-def addLists(arr1: List[float], arr2: List[float]):
+def addLists(arr1: List[float], arr2: List[float]) -> List[float]:
     return zipWith(add, arr1, arr2)
 
 
-def sum(arr: List[float]):
+def sum(arr: List[float]) -> float:
     return reduce(add, arr)
 
 
-def prod(arr: List[float]):
+def prod(arr: List[float]) -> float:
     return reduce(mul, arr)
