@@ -126,8 +126,6 @@ def test_transitive(a: float, b: float, c: float) -> None:
     if b1 != c1:
         assert lt(b1, c1)
 
-    
-
 
 @pytest.mark.task0_2
 @given(small_floats, small_floats)

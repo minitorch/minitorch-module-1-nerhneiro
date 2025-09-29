@@ -65,6 +65,7 @@ def topological_sort(variable: Variable) -> Iterable[Variable]:
     # TODO: Implement for Task 1.4.
     top_sort: List[Variable] = []
     visited: set[Any] = set()
+
     def dfs_route(var: Variable):
         if var.is_constant() or var.unique_id in visited:
             return
@@ -102,7 +103,6 @@ def backpropagate(variable: Variable, deriv: Any) -> None:
                 var_to_deriv[step_var.unique_id] = var_derivative
             else:
                 var_to_deriv[step_var.unique_id] += var_derivative
-        
 
 @dataclass
 class Context:

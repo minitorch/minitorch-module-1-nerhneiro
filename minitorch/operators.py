@@ -35,51 +35,66 @@ from typing import Callable, Iterable, List
 def mul(x : float, y : float) -> float:
     return x * y
 
+
 def id(x: float):
     return x
+
 
 def add(x: float, y: float) -> float:
     return x + y
 
+
 def neg(x: float):
     return float(-x)
+
 
 def lt(x: float, y: float):
     return float(x < y)
 
+
 def eq(x: float, y: float):
     return float(x == y)
+
 
 def max(x: float, y: float):
     if x >= y:
         return x
     return y
 
+
 def is_close(x: float, y: float):
     return abs(x - y) < 1e-5
+
 
 def sigmoid(x: float):
     if x >= 0:
         return 1.0 / (1.0 + math.exp(-x))
     return math.exp(x) / (1.0 + math.exp(x))
 
+
 def relu(x: float):
     return max(0.0, x)
+
 
 def log(x: float):
     return math.log(x)
 
+
 def exp(x: float):
     return math.exp(x)
+
 
 def log_back(x: float, y: float):
     return y / x
 
+
 def inv(x: float):
     return 1.0 / x
 
+
 def inv_back(x: float, y: float):
     return -1.0 / x ** 2 * y
+
 
 def relu_back(x: float, y: float):
     if x > 0:
@@ -110,6 +125,7 @@ def relu_back(x: float, y: float):
 def map(f: Callable, arr: Iterable[float]):
     return [f(x) for x in arr]
 
+
 def zipWith(f: Callable, arr1: Iterable[float], arr2: Iterable[float]) -> List[float]:
     answer: List[float] = []
     try:
@@ -121,6 +137,7 @@ def zipWith(f: Callable, arr1: Iterable[float], arr2: Iterable[float]) -> List[f
             answer.append(f(next1, next2))
     except StopIteration:
         return answer
+
 
 def reduce(f: Callable, arr: Iterable[float]) -> float:
     it = iter(arr)
@@ -136,15 +153,19 @@ def reduce(f: Callable, arr: Iterable[float]) -> float:
             answer = f(answer, next_val)
     except StopIteration:
         return answer
-    
+
+  
 def negList(arr: List[float]):
     return map(neg, arr)
+
 
 def addLists(arr1: List[float], arr2: List[float]):
     return zipWith(add, arr1, arr2)
 
+
 def sum(arr: List[float]):
     return reduce(add, arr)
+
 
 def prod(arr: List[float]):
     return reduce(mul, arr)
